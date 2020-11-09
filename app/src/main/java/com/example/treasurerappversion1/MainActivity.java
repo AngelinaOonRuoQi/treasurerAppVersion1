@@ -19,8 +19,6 @@ import java.util.ArrayList;
 //TODO: C) Is supposed to be double, not int when reading price
 
 
-
-
 //TODO: 1) Teach on Validating EditText -show editTextOption and textWatcher
 //TODO: 2) Guide Layout, teach about ScrollView and Dynamic Layouting
 //TODO: 3) Introduce shortcutkey ctrl+alt+l to auto format the codes
