@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
 
+        //Comment
+
         editCourse=(EditText) findViewById(R.id.editCourse);
         editQty=(EditText)findViewById(R.id.editQty);
         editPrice=(EditText)findViewById(R.id.editPrice);
