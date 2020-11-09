@@ -17,6 +17,8 @@ import java.util.ArrayList;
 //TODO: 2) Guide Layout, teach about ScrollView and Dynamic Layouting
 //TODO: 3) Introduce shortcutkey ctrl+alt+l to auto format the codes
 //TODO: 4) Introduce Input Filter, don't teach because is a bit advance
+//TODO: 5) Introduce the most basic Object Oriented, don't teach too much because is very advance
+
 
 
 
