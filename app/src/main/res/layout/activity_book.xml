@@ -54,6 +54,7 @@
         android:paddingStart="4dp"
         android:paddingEnd="4dp"
         android:layout_marginTop="-8dp"
+        android:inputType="number"
         />
 
     <TextView
@@ -71,7 +72,9 @@
         android:layout_height="wrap_content"
         android:paddingStart="4dp"
         android:layout_marginTop="-8dp"
-        android:paddingEnd="4dp" />
+        android:paddingEnd="4dp"
+        android:inputType="numberDecimal"
+        />
 
     <TextView
         android:id="@+id/textSubTotal"
@@ -89,7 +92,8 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         android:background="@color/colorAccent"
-        android:enabled="false" />
+        android:enabled="false"
+        />
 
 
     <Button
