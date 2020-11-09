@@ -18,12 +18,18 @@ import java.util.ArrayList;
 //TODO: B) When press save, need to show popup validate?
 //TODO: C) Is supposed to be double, not int when reading price
 
+
+
+
 //TODO: 1) Teach on Validating EditText -show editTextOption and textWatcher
 //TODO: 2) Guide Layout, teach about ScrollView and Dynamic Layouting
 //TODO: 3) Introduce shortcutkey ctrl+alt+l to auto format the codes
 //TODO: 4) Introduce Input Filter, don't teach because is a bit advance
 //TODO: 5) Introduce the most basic Object Oriented, don't teach too much because is very advance
 //TODO: 6) Help to write Firebase, because it can be a little tricky to understand how other Firebase database works.
+
+//TODO: Show that add() function don't need to use for loop
+//TODO: Guide to use git merge
 
 public class MainActivity extends AppCompatActivity {
     private ArrayList<String> data =new ArrayList<>();
