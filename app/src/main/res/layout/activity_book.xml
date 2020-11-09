@@ -1,127 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="8dp"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textTittle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:text="DIB 2"
+        android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textTittle"
-            android:layout_width="410dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="DIB 2 "
-            android:textSize="20sp" />
-    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
     <TextView
         android:id="@+id/textCourse"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
         android:text="Course :"
         android:textSize="18sp" />
 
+
     <EditText
         android:id="@+id/editCourse"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="13"/>
-    </LinearLayout>
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:layout_marginTop="-8dp"
+        />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+
+    <TextView
+        android:id="@+id/textQty"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:text="Qty :"
+        android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/textQty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Qty :"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/editQty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/editQty"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:layout_marginTop="-8dp"
+        />
 
-        <TextView
-            android:id="@+id/textPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Price :"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/editPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textPrice"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:text="Price :"
+        android:textSize="18sp"/>
 
-        <TextView
-            android:id="@+id/textSubTotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sub Total :"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/editSubTotal"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:background="@color/colorAccent"
-            android:ems="10"
-            android:enabled="false" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/editPrice"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:paddingStart="4dp"
+        android:layout_marginTop="-8dp"
+        android:paddingEnd="4dp" />
 
-        <Button
-            android:id="@+id/buttonAdd"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:text="Add" />
+    <TextView
+        android:id="@+id/textSubTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:text="Sub Total :"
+        android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/buttonSave"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:text="Save" />
+    <EditText
+        android:id="@+id/editSubTotal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="@color/colorAccent"
+        android:enabled="false" />
 
-        <Button
-            android:id="@+id/buttonStudent"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:text="Student" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="Add" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="Save" />
+
+    <Button
+        android:id="@+id/buttonStudent"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="Student" />
+
 
     <LinearLayout
         android:layout_width="wrap_content"
