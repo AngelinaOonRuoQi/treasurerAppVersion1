@@ -21,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
 
     EditText editCourse, editQty, editPrice, editSubTotal;
     Button btnAdd, btnStudent;
+    TableLayout table;
+
+    double sum = 0;
+    int currentItemIndex = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,52 +55,53 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        table = (TableLayout) findViewById(R.id.tb1);
+
+
     }
 
     public void add() {
-        int tot;
         String course = editCourse.getText().toString();
-        int price = Integer.parseInt(editPrice.getText().toString());
+        double price = Double.parseDouble(editPrice.getText().toString());
         int qty = Integer.parseInt(editQty.getText().toString());
-        tot = price * qty;
+        double tot = price * qty;
+        sum = sum + price * qty;
 
         data.add(course);
         data1.add(String.valueOf(qty));
         data2.add(String.valueOf(price));
         data3.add(String.valueOf(tot));
 
-        TableLayout table = (TableLayout) findViewById(R.id.tb1);
-        TableRow row = new TableRow(this);
         TextView row1 = new TextView(this);
         TextView row2 = new TextView(this);
         TextView row3 = new TextView(this);
         TextView row4 = new TextView(this);
 
-        String total;
-        int sum = 0;
-        for (int i = 0; i < data.size(); i++) {
-            String cours = data.get(i);
-            String qtyy = data1.get(i);
-            String pri = data2.get(i);
-            total = data3.get(i);
+        row1.setText(data.get(currentItemIndex));
+        row2.setText(data1.get(currentItemIndex));
+        row3.setText(data2.get(currentItemIndex));
+        row4.setText(data3.get(currentItemIndex));
 
-            row1.setText(cours);
-            row2.setText(qtyy);
-            row3.setText(pri);
-            row4.setText(total);
+        //Create new row
+        TableRow row = new TableRow(this);
 
-            sum = sum + Integer.parseInt(data3.get(i).toString());
-        }
+        //Popuplate the row
         row.addView(row1);
         row.addView(row2);
         row.addView(row3);
         row.addView(row4);
+
+        //Make changes by calling table to add the row that was just populated
         table.addView(row);
 
+
+        //reset editText
         editSubTotal.setText(String.valueOf(sum));
         editCourse.setText("");
         editQty.setText("");
         editPrice.setText("");
         editCourse.requestFocus();
+
+        currentItemIndex++;
     }
 }
