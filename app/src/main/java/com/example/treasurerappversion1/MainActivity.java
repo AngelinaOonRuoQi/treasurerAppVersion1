@@ -13,6 +13,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+//TODO: 1) Teach on Validating EditText -show editTextOption and textWatcher
+//TODO: 2) Guide Layout, teach about ScrollView and Dynamic Layouting
+//TODO: 3) Introduce shortcutkey ctrl+alt+l to auto format the codes
+//TODO: 4) Introduce Input Filter, don't teach because is a bit advance
+
+
+
 public class MainActivity extends AppCompatActivity {
     private ArrayList<String> data =new ArrayList<>();
     private ArrayList<String> data1 =new ArrayList<>();
