@@ -18,6 +18,7 @@ import java.util.ArrayList;
 //TODO: 3) Introduce shortcutkey ctrl+alt+l to auto format the codes
 //TODO: 4) Introduce Input Filter, don't teach because is a bit advance
 //TODO: 5) Introduce the most basic Object Oriented, don't teach too much because is very advance
+//TODO: 6) Help to write Firebase, because it can be a little tricky to understand how other Firebase database works.
 
 
 
