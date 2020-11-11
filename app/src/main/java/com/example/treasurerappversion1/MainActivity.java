@@ -30,25 +30,32 @@ import java.util.ArrayList;
 //TODO: Guide to use git merge
 
 public class MainActivity extends AppCompatActivity {
-    private ArrayList<String> data =new ArrayList<>();
-    private ArrayList<String> data1 =new ArrayList<>();
-    private ArrayList<String> data2 =new ArrayList<>();
-    private ArrayList<String> data3 =new ArrayList<>();
+    private ArrayList<String> data = new ArrayList<>();
+    private ArrayList<String> data1 = new ArrayList<>();
+    private ArrayList<String> data2 = new ArrayList<>();
+    private ArrayList<String> data3 = new ArrayList<>();
 
-    EditText editCourse,editQty,editPrice,editSubTotal;
-    Button btnAdd,btnStudent;
+    EditText editCourse, editQty, editPrice, editSubTotal;
+    Button btnAdd, btnStudent;
+    TableLayout table;
+
+    double sum = 0;
+    int currentItemIndex = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
 
-        editCourse=(EditText) findViewById(R.id.editCourse);
-        editQty=(EditText)findViewById(R.id.editQty);
-        editPrice=(EditText)findViewById(R.id.editPrice);
-        editSubTotal=(EditText)findViewById(R.id.editSubTotal);
-        btnAdd=(Button) findViewById(R.id.buttonAdd);
-        btnStudent=(Button) findViewById(R.id.buttonStudent);
+        //Comment
+
+        editCourse = (EditText) findViewById(R.id.editCourse);
+        editQty = (EditText) findViewById(R.id.editQty);
+        editPrice = (EditText) findViewById(R.id.editPrice);
+        editSubTotal = (EditText) findViewById(R.id.editSubTotal);
+        btnAdd = (Button) findViewById(R.id.buttonAdd);
+        btnStudent = (Button) findViewById(R.id.buttonStudent);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,57 +66,58 @@ public class MainActivity extends AppCompatActivity {
         btnStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,StudentActivity.class);
+                Intent intent = new Intent(MainActivity.this, StudentActivity.class);
                 startActivity(intent);
             }
         });
 
+        table = (TableLayout) findViewById(R.id.tb1);
+
+
     }
 
-    public void add(){
-        int tot;
-        String course=editCourse.getText().toString();
-        int price=Integer.parseInt(editPrice.getText().toString());
-        int qty=Integer.parseInt(editQty.getText().toString());
-        tot=price*qty;
+    public void add() {
+        String course = editCourse.getText().toString();
+        double price = Double.parseDouble(editPrice.getText().toString());
+        int qty = Integer.parseInt(editQty.getText().toString());
+        double tot = price * qty;
+        sum = sum + price * qty;
 
         data.add(course);
         data1.add(String.valueOf(qty));
         data2.add(String.valueOf(price));
         data3.add(String.valueOf(tot));
 
-        TableLayout table=(TableLayout) findViewById(R.id.tb1);
-        TableRow row=new TableRow(this);
-        TextView row1= new TextView(this);
-        TextView row2= new TextView(this);
-        TextView row3= new TextView(this);
-        TextView row4= new TextView(this);
+        TextView row1 = new TextView(this);
+        TextView row2 = new TextView(this);
+        TextView row3 = new TextView(this);
+        TextView row4 = new TextView(this);
 
-        String total;
-        int sum=0;
-        for(int i =0;i<data.size();i++){
-            String cours = data.get(i);
-            String qtyy = data1.get(i);
-            String pri = data2.get(i);
-            total = data3.get(i);
+        row1.setText(data.get(currentItemIndex));
+        row2.setText(data1.get(currentItemIndex));
+        row3.setText(data2.get(currentItemIndex));
+        row4.setText(data3.get(currentItemIndex));
 
-            row1.setText(cours);
-            row2.setText(qtyy);
-            row3.setText(pri);
-            row4.setText(total);
+        //Create new row
+        TableRow row = new TableRow(this);
 
-            sum=sum+Integer.parseInt(data3.get(i).toString());
-        }
+        //Popuplate the row
         row.addView(row1);
         row.addView(row2);
         row.addView(row3);
         row.addView(row4);
+
+        //Make changes by calling table to add the row that was just populated
         table.addView(row);
 
+
+        //reset editText
         editSubTotal.setText(String.valueOf(sum));
         editCourse.setText("");
         editQty.setText("");
         editPrice.setText("");
         editCourse.requestFocus();
+
+        currentItemIndex++;
     }
 }
