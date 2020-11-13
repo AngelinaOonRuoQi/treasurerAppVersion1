@@ -15,19 +15,35 @@ import java.util.ArrayList;
 
 //TODO: To Fix
 //TODO: A) what is sub total? Isn't that Grand Total?
+//To modify later
 //TODO: B) When press save, need to show popup validate?
+//Will do when function is added
 //TODO: C) Is supposed to be double, not int when reading price
+//Fix already
 
 
 //TODO: 1) Teach on Validating EditText -show editTextOption and textWatcher
+//Teached
+//addTextChangedListener - noticed there is listener pattern
 //TODO: 2) Guide Layout, teach about ScrollView and Dynamic Layouting
+//Teached
 //TODO: 3) Introduce shortcutkey ctrl+alt+l to auto format the codes
+//Teached
 //TODO: 4) Introduce Input Filter, don't teach because is a bit advance
+//Example: editCourse.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+
+
 //TODO: 5) Introduce the most basic Object Oriented, don't teach too much because is very advance
+//Done Introducing 4 basic OOP Concept
 //TODO: 6) Help to write Firebase, because it can be a little tricky to understand how other Firebase database works.
 
 //TODO: Show that add() function don't need to use for loop
+
 //TODO: Guide to use git merge
+//Done.
+
+//TODO: Give her to practice merge conflict
+//
 
 public class BookActivity extends AppCompatActivity {
     private ArrayList<String> data = new ArrayList<>();
