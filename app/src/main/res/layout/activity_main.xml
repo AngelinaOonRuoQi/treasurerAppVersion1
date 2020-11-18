@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/semesterRv"
         android:layout_width="match_parent"
         android:layout_height="550dp"
         app:layout_constraintStart_toStartOf="parent"
