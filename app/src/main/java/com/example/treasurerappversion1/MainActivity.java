@@ -19,7 +19,7 @@ import static android.view.MotionEvent.ACTION_DOWN;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView rvSemester;
-    SemesterAdapter semesterAdapter;
+    SemesterAdapter2 semesterAdapter;
     ArrayList<Semester> semesterList = new ArrayList<>();
     RecyclerView.LayoutManager layoutManager;
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         rvSemester = findViewById(R.id.semesterRv);
         layoutManager = new LinearLayoutManager(this);
         rvSemester.setLayoutManager(layoutManager);
-        semesterAdapter = new SemesterAdapter(getApplicationContext(), semesterList);
+        semesterAdapter = new SemesterAdapter2(getApplicationContext(), semesterList);
 
         semesterAdapter.setOnItemClickListener(new ListItemClickListener() {
             @Override
