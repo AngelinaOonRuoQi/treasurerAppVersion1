@@ -3,6 +3,9 @@ package com.example.treasurerappversion1;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     SemesterAdapter2 semesterAdapter;
     ArrayList<Semester> semesterList = new ArrayList<>();
     RecyclerView.LayoutManager layoutManager;
+    EditText etSemesterName;
+
+    Button btnPlus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +38,11 @@ public class MainActivity extends AppCompatActivity {
         semesterList.add(new Semester(2, "Y1S2"));
         semesterList.add(new Semester(3, "Y1S3"));
 
-        Log.w("sz",semesterList.get(0).getName());
+        Log.w("sz", semesterList.get(0).getName());
 
-        rvSemester = findViewById(R.id.semesterRv);
+        rvSemester = findViewById(R.id.rv_semester);
+        etSemesterName = findViewById(R.id.et_semester_name);
+        btnPlus = findViewById(R.id.btn_plus);
         layoutManager = new LinearLayoutManager(this);
         rvSemester.setLayoutManager(layoutManager);
         semesterAdapter = new SemesterAdapter2(getApplicationContext(), semesterList);
@@ -42,10 +50,26 @@ public class MainActivity extends AppCompatActivity {
         semesterAdapter.setOnItemClickListener(new ListItemClickListener() {
             @Override
             public void onListItemClick(int position) {
-                Toast.makeText(MainActivity.this,"position is "+position,Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "position is " + position, Toast.LENGTH_SHORT).show();
             }
         });
+
+
         rvSemester.setAdapter(semesterAdapter);
+
+        btnPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!etSemesterName.getText().toString().isEmpty()){
+                    semesterList.add(new Semester(semesterAdapter.getItemCount() + 1, etSemesterName.getText().toString()));
+                    semesterAdapter.notifyDataSetChanged();
+                    etSemesterName.setText("");
+                } else {
+                    etSemesterName.setError("Please key in a value");
+                }
+
+            }
+        });
 
     }
 }
