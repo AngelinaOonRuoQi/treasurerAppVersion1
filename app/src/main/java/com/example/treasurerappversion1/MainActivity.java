@@ -1,5 +1,6 @@
 package com.example.treasurerappversion1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -51,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onListItemClick(int position) {
                 Toast.makeText(MainActivity.this, "position is " + position, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this, BookActivity.class);
+                i.putExtra("sem_title",semesterList.get(position).getName());
+                startActivity(i);
+
             }
         });
 
