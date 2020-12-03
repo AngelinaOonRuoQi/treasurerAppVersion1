@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">treasurerAppVersion1</string>
+    <string name="new_students">New Students</string>
+    <string name="add_student">Add Student</string>
+
+
 </resources>

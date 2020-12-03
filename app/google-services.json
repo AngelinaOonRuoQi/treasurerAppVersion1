@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "598317400856",
+    "firebase_url": "https://treasurer-app-b072f-default-rtdb.firebaseio.com",
+    "project_id": "treasurer-app-b072f",
+    "storage_bucket": "treasurer-app-b072f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598317400856:android:821d793671bd55b8ad546d",
+        "android_client_info": {
+          "package_name": "com.example.treasurerappversion1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598317400856-h9qodu5jul1h8lg9iq9r1be5f7i02p0v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdSaB0XUYSbr5asYDt-COBxYQOgchwSEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598317400856-h9qodu5jul1h8lg9iq9r1be5f7i02p0v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

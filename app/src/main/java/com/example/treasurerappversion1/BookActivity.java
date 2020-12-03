@@ -54,7 +54,7 @@ public class BookActivity extends AppCompatActivity {
     EditText editCourse, editQty, editPrice, editSubTotal;
     Button btnAdd, btnStudent;
     TableLayout table;
-    TextView tbTextTitle;
+    TextView tvTextTitle;
 
     double sum = 0;
     int currentItemIndex = 0;
@@ -73,7 +73,7 @@ public class BookActivity extends AppCompatActivity {
         editSubTotal = (EditText) findViewById(R.id.editSubTotal);
         btnAdd = (Button) findViewById(R.id.buttonAdd);
         btnStudent = (Button) findViewById(R.id.buttonStudent);
-        tbTextTitle = findViewById(R.id.textTittle);
+        tvTextTitle = findViewById(R.id.textTittle);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +85,7 @@ public class BookActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(BookActivity.this, StudentActivity.class);
+                intent.putExtra("semester", tvTextTitle.getText());
                 startActivity(intent);
             }
         });
@@ -92,7 +93,7 @@ public class BookActivity extends AppCompatActivity {
         table = (TableLayout) findViewById(R.id.tb1);
 
         if(getIntent().getStringExtra("sem_title") != null){
-            tbTextTitle.setText(getIntent().getStringExtra("sem_title"));
+            tvTextTitle.setText(getIntent().getStringExtra("sem_title"));
         }
 
 
