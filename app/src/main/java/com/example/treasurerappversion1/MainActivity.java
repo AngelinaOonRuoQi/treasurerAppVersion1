@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         semesterAdapter.setOnItemClickListener(new ListItemClickListener() {
             @Override
             public void onListItemClick(int position) {
-                Toast.makeText(MainActivity.this, "position is " + position, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(MainActivity.this, BookActivity.class);
                 i.putExtra("sem_title",semesterList.get(position).getName());
                 startActivity(i);
