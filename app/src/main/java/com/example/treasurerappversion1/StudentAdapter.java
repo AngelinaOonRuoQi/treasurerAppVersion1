@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder> {
-    private ArrayList<StudentName> mStudentList;
+    private ArrayList<Student> mStudentList;
 
     public static class StudentViewHolder extends RecyclerView.ViewHolder{
 
@@ -38,7 +38,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         }
     }
 
-    public StudentAdapter(ArrayList<StudentName> studentList){
+    public StudentAdapter(ArrayList<Student> studentList){
         mStudentList=studentList;
     }
 
@@ -52,7 +52,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
 
     @Override
     public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
-        StudentName current=mStudentList.get(position);
+        Student current=mStudentList.get(position);
         holder.name.setText(current.getName());
     }
 

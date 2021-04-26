@@ -1,9 +1,9 @@
 package com.example.treasurerappversion1;
 
-public class StudentName {
+public class Student {
     private String name;
 
-    public StudentName(String StudentName){
+    public Student(String StudentName){
         name=StudentName;
     }
 

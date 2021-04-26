@@ -40,7 +40,7 @@ public class StudentActivity extends AppCompatActivity {
     CharSequence loadItems[];
     ArrayList<String> studentNames = new ArrayList();
     ArrayList<String> currentStudentList = new ArrayList();
-    ArrayList<StudentName> currentSemstudentName = new ArrayList<>();
+    ArrayList<Student> currentSemstudent = new ArrayList<>();
 
 
     @Override
@@ -68,7 +68,7 @@ public class StudentActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
 
-        mAdapter = new StudentAdapter(currentSemstudentName);
+        mAdapter = new StudentAdapter(currentSemstudent);
         mRecyclerView.setAdapter(mAdapter);
 
         initializeStudentRefListener();
@@ -109,14 +109,14 @@ public class StudentActivity extends AppCompatActivity {
                 currentStudentList = new ArrayList<>();
 
 
-                if(!currentSemstudentName.isEmpty())
-                    currentSemstudentName.clear();
+                if(!currentSemstudent.isEmpty())
+                    currentSemstudent.clear();
 
                 for (DataSnapshot single :
                         snapshot.getChildren()) {
                     currentStudentList.add(single.getValue().toString());
 //
-                    currentSemstudentName.add(new StudentName(single.getValue().toString()));
+                    currentSemstudent.add(new Student(single.getValue().toString()));
                     mAdapter.notifyDataSetChanged();
 
 
