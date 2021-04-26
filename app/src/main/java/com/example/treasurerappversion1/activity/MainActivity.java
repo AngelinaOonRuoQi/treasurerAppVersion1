@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     semesterAdapter.notifyDataSetChanged();
                     etSemesterName.setText("");
                 } else {
+                    etSemesterName.requestFocus();
                     etSemesterName.setError("Please key in a value");
                 }
 
