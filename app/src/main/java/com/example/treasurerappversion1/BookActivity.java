@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -92,7 +93,7 @@ public class BookActivity extends AppCompatActivity {
 
         table = (TableLayout) findViewById(R.id.tb1);
 
-        if(getIntent().getStringExtra("sem_title") != null){
+        if (getIntent().getStringExtra("sem_title") != null) {
             tvTextTitle.setText(getIntent().getStringExtra("sem_title"));
         }
 
@@ -100,9 +101,29 @@ public class BookActivity extends AppCompatActivity {
     }
 
     public void add() {
-        String course = editCourse.getText().toString();
-        double price = Double.parseDouble(editPrice.getText().toString());
-        int qty = Integer.parseInt(editQty.getText().toString());
+        String course = "";
+        double price = 0.00;
+        double qty = 0.00;
+        if (!editCourse.getText().toString().isEmpty()) {
+            course = editCourse.getText().toString();
+        } else {
+            showErrorMessage("Please key in Course Details");
+            return;
+        }
+
+        if (!editPrice.getText().toString().isEmpty()) {
+            price = Double.parseDouble(editPrice.getText().toString());
+        } else {
+            showErrorMessage("Please key in Price");
+            return;
+        }
+
+        if (!editQty.getText().toString().isEmpty()) {
+            qty = Integer.parseInt(editQty.getText().toString());
+        } else {
+            showErrorMessage("Please key in Quantity");
+            return;
+        }
         double tot = price * qty;
         sum = sum + price * qty;
 
@@ -142,5 +163,9 @@ public class BookActivity extends AppCompatActivity {
         editCourse.requestFocus();
 
         currentItemIndex++;
+    }
+
+    private void showErrorMessage(String errorMessage) {
+        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
     }
 }
