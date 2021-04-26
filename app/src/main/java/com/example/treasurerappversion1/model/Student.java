@@ -1,4 +1,4 @@
-package com.example.treasurerappversion1;
+package com.example.treasurerappversion1.model;
 
 public class Student {
     private String name;
