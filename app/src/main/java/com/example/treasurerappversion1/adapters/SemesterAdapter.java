@@ -1,15 +1,16 @@
-package com.example.treasurerappversion1;
+package com.example.treasurerappversion1.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.treasurerappversion1.ListItemClickListener;
+import com.example.treasurerappversion1.R;
 import com.example.treasurerappversion1.model.Semester;
 
 import java.util.ArrayList;

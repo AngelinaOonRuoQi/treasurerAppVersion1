@@ -1,4 +1,4 @@
-package com.example.treasurerappversion1;
+package com.example.treasurerappversion1.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.treasurerappversion1.R;
+import com.example.treasurerappversion1.adapters.StudentAdapter;
 import com.example.treasurerappversion1.model.Student;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

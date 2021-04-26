@@ -1,4 +1,4 @@
-package com.example.treasurerappversion1;
+package com.example.treasurerappversion1.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.treasurerappversion1.R;
 
 import java.util.ArrayList;
 

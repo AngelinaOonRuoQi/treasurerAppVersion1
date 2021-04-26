@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".BookActivity">
+    tools:context=".activity.BookActivity">
 
 
     <TextView
@@ -30,10 +30,17 @@
             android:layout_height="wrap_content"
             android:text="Semester Name:" />
 
-        <EditText
-            android:id="@+id/et_semester_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+
+
+            <EditText
+                android:id="@+id/et_semester_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                />
+
+
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_plus"

@@ -1,4 +1,4 @@
-package com.example.treasurerappversion1;
+package com.example.treasurerappversion1.adapters;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.treasurerappversion1.R;
 import com.example.treasurerappversion1.model.Student;
 
 import java.util.ArrayList;
