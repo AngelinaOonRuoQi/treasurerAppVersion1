@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -25,10 +28,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class StudentActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private StudentAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     DatabaseReference studentRef;
     DatabaseReference semesterRef;
@@ -73,6 +78,24 @@ public class StudentActivity extends AppCompatActivity {
 
         mAdapter = new StudentAdapter(currentSemstudent);
         mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(new StudentAdapter.ClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+
+
+                Map<String, Object> hopperUpdates = new HashMap<>();
+                hopperUpdates.put("paidStatus", currentSemstudent.get(position).getPaidStatus().equals("unpaid") ? "paid" : "unpaid");
+
+                currentSemesterRef.child(String.valueOf(position+1)).updateChildren(hopperUpdates);
+
+
+            }
+
+            @Override
+            public void onItemLongClick(int position, View v) {
+
+            }
+        });
 
         initializeStudentRefListener();
         initializeCurrentSemesterStudents();
@@ -117,9 +140,11 @@ public class StudentActivity extends AppCompatActivity {
 
                 for (DataSnapshot single :
                         snapshot.getChildren()) {
-                    currentStudentList.add(single.getValue().toString());
+                    Student student = single.getValue(Student.class);
+
+                    currentStudentList.add(student.getName());
 //
-                    currentSemstudent.add(new Student(single.getValue().toString()));
+                    currentSemstudent.add(student);
                     mAdapter.notifyDataSetChanged();
 
 
@@ -131,6 +156,8 @@ public class StudentActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
     private void addStudent(String name) {
