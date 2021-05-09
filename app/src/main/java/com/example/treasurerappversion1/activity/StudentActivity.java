@@ -53,6 +53,8 @@ public class StudentActivity extends AppCompatActivity {
     ArrayList<String> currentStudentList = new ArrayList();
     ArrayList<Student> currentSemstudent = new ArrayList<>();
 
+    String sem_id = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,7 @@ public class StudentActivity extends AppCompatActivity {
         Intent i = getIntent();
         if (i != null) {
             semesterTitleTv.setText(i.getStringExtra("semester"));
+            sem_id = i.getStringExtra("sem_id");
         }
 
         // Write a message to the database
@@ -70,7 +73,7 @@ public class StudentActivity extends AppCompatActivity {
         studentRef = database.getReference("Students");
         semesterRef = database.getReference("Semesters");
 
-        currentSemesterRef = database.getReference("Semesters/" + semesterTitleTv.getText() + "/ListOfStudents");
+        currentSemesterRef = database.getReference("Semesters/" + sem_id + "/ListOfStudents");
 
         mRecyclerView = findViewById(R.id.recyclerViewName);
         mRecyclerView.setHasFixedSize(true);

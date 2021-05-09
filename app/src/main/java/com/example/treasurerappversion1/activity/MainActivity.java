@@ -1,8 +1,10 @@
 package com.example.treasurerappversion1.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             public void onListItemClick(int position) {
                 Intent i = new Intent(MainActivity.this, BookActivity.class);
                 i.putExtra("sem_title", semesterList.get(position).getName());
+                i.putExtra("sem_id", semesterList.get(position).getId()+"");
                 startActivity(i);
 
             }
@@ -101,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     semesterTemp.setName(etSemesterName.getText().toString());
 
 
-                    semestersRef.child(etSemesterName.getText().toString()).setValue(semesterTemp);
+                    semestersRef.child(semesterTemp.getId()+"").setValue(semesterTemp);
 //                    Map<String, Object> updates = new HashMap<>();
 //                    updates.put(etSemesterName.getText().toString()+"/listOfStudents", "empty");
 //                    updates.put(etSemesterName.getText().toString()+"/listOfCourses", "empty");
@@ -114,6 +117,8 @@ public class MainActivity extends AppCompatActivity {
                     etSemesterName.requestFocus();
                     etSemesterName.setError("Please key in a value");
                 }
+
+                closeKeyboard();
 
             }
         });
@@ -154,6 +159,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void closeKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
 }

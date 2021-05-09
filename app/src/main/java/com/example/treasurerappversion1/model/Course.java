@@ -3,8 +3,9 @@ package com.example.treasurerappversion1.model;
 public class Course {
     private String id;
     private String name;
-    private String price;
-    private String qty;
+    private double price;
+    private double quantity;
+    private double total;
 
     public Course(){
 
@@ -26,19 +27,23 @@ public class Course {
         this.name = name;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public String getQty() {
-        return qty;
+    public double getQuantity() {
+        return quantity;
     }
 
-    public void setQty(String qty) {
-        this.qty = qty;
+    public void setQuantity(double quantity) {
+        this.quantity = quantity;
+    }
+
+    private double getTotal(){
+        return this.price * this.quantity;
     }
 }
