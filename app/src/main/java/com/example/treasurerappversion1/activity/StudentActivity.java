@@ -31,7 +31,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
 public class StudentActivity extends AppCompatActivity {
+
     private RecyclerView mRecyclerView;
     private StudentAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -83,10 +86,10 @@ public class StudentActivity extends AppCompatActivity {
             public void onItemClick(int position, View v) {
 
 
-                Map<String, Object> hopperUpdates = new HashMap<>();
-                hopperUpdates.put("paidStatus", currentSemstudent.get(position).getPaidStatus().equals("unpaid") ? "paid" : "unpaid");
+                Map<String, Object> studentUpdates = new HashMap<>();
+                studentUpdates.put("paidStatus", currentSemstudent.get(position).getPaidStatus().equals("unpaid") ? "paid" : "unpaid");
 
-                currentSemesterRef.child(String.valueOf(position+1)).updateChildren(hopperUpdates);
+                currentSemesterRef.child(String.valueOf(position + 1)).updateChildren(studentUpdates);
 
 
             }
@@ -132,11 +135,13 @@ public class StudentActivity extends AppCompatActivity {
 
                 studentAddedCount = (int) snapshot.getChildrenCount();
 
-                currentStudentList = new ArrayList<>();
 
 
-                if(!currentSemstudent.isEmpty())
+                if (!currentSemstudent.isEmpty())
                     currentSemstudent.clear();
+
+                if (!currentStudentList.isEmpty())
+                    currentStudentList.clear();
 
                 for (DataSnapshot single :
                         snapshot.getChildren()) {
@@ -235,8 +240,16 @@ public class StudentActivity extends AppCompatActivity {
                                 // User clicked OK, so save the selectedItems results somewhere
                                 // or return them to the component that opened the dialog
                                 for (String item : selectedItems) {
-                                    currentSemesterRef.child(studentAddedCount + 1 + "").setValue(item);
+//                                    currentSemesterRef.child(studentAddedCount + 1 + "").setValue(item);
+                                    Map<String, Student> studentHashMap = new HashMap<>();
+                                    Student student = new Student();
+                                    student.setName(item);
+                                    student.setPaidStatus("unpaid");
+                                    studentHashMap.put(studentAddedCount + 1 + "", student);
+                                    currentSemesterRef.child(studentAddedCount + 1 + "").setValue(student);
                                     studentAddedCount++;
+
+
                                 }
                             }
                         })
@@ -266,6 +279,8 @@ public class StudentActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         return true;
     }
 
@@ -277,6 +292,9 @@ public class StudentActivity extends AppCompatActivity {
                 return true;
             case R.id.add_student:
                 showStudentListPopup();
+                return true;
+            case android.R.id.home:
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

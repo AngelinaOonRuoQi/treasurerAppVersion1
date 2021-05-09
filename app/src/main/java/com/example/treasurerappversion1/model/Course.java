@@ -1,12 +1,12 @@
 package com.example.treasurerappversion1.model;
 
-public class Student {
+public class Course {
     private String id;
     private String name;
-    private String paidStatus;
+    private String price;
+    private String qty;
 
-
-    public Student() {
+    public Course(){
 
     }
 
@@ -22,18 +22,23 @@ public class Student {
         return name;
     }
 
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getPaidStatus() {
-        return paidStatus;
+    public String getPrice() {
+        return price;
     }
 
-    public void setPaidStatus(String paidStatus) {
-        this.paidStatus = paidStatus;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
+    public String getQty() {
+        return qty;
+    }
 
+    public void setQty(String qty) {
+        this.qty = qty;
+    }
 }

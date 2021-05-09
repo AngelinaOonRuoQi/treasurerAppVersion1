@@ -1,12 +1,15 @@
 package com.example.treasurerappversion1.model;
 
+import java.util.List;
+
 public class Semester {
     private int id;
     private String name;
+//    private List<Student> listOfStudents;
+//    private List<Course> listOfCourses;
 
-    public Semester(int id, String name){
-        this.id = id;
-        this.name = name;
+    public Semester() {
+
     }
 
     public int getId() {
@@ -24,4 +27,20 @@ public class Semester {
     public void setName(String name) {
         this.name = name;
     }
+
+//    public List<Student> getListOfStudents() {
+//        return listOfStudents;
+//    }
+//
+//    public void setListOfStudents(List<Student> listOfStudents) {
+//        this.listOfStudents = listOfStudents;
+//    }
+//
+//    public List<Course> getListOfCourses() {
+//        return listOfCourses;
+//    }
+//
+//    public void setListOfCourses(List<Course> listOfCourses) {
+//        this.listOfCourses = listOfCourses;
+//    }
 }
