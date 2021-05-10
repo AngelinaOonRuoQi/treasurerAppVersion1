@@ -146,13 +146,13 @@
                     android:id="@+id/row3_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Price" />
+                    android:text="Price (RM)" />
 
                 <TextView
                     android:id="@+id/row4_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total" />
+                    android:text="Total (RM)" />
 
             </TableRow>
 

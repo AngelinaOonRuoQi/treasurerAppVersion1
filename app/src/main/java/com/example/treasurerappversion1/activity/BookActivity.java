@@ -1,12 +1,8 @@
 package com.example.treasurerappversion1.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,9 +14,11 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.treasurerappversion1.R;
 import com.example.treasurerappversion1.model.Course;
-import com.example.treasurerappversion1.model.Student;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,8 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 //TODO: To Fix
 //TODO: A) what is sub total? Isn't that Grand Total?
@@ -112,8 +109,6 @@ public class BookActivity extends AppCompatActivity {
                 save();
             }
         });
-
-
 
 
         table = (TableLayout) findViewById(R.id.tb1);
@@ -254,7 +249,7 @@ public class BookActivity extends AppCompatActivity {
                     row1.setText(course.getName());
                     row2.setText(course.getQuantity() + "");
                     row3.setText(course.getPrice() + "");
-                    row4.setText((course.getPrice() * course.getQuantity()) + "");
+                    row4.setText(course.getTotal() + "");
 
                     //Create new row
                     TableRow row = new TableRow(BookActivity.this);
@@ -282,22 +277,34 @@ public class BookActivity extends AppCompatActivity {
     }
 
     private void save() {
-        for (int i = 0; i < data.size(); i++) {
-            Map<String, Object> courseHashMap = new HashMap<>();
+
+
+        List<Course> listOfHashMaps = new ArrayList<>();
+
+        for (int i = 0; i < table.getChildCount(); i++) {
+            TableRow row = (TableRow) table.getChildAt(i);
+
+            TextView tableRowName = (TextView) row.getChildAt(0);
+            TextView tableRowQuantity = (TextView) row.getChildAt(1);
+            TextView tableRowPrice = (TextView) row.getChildAt(2);
+
 
             Course courseTemp = new Course();
-            courseTemp.setId((currentItemIndex + 1) + "");
-            courseTemp.setName(data.get(i));
-            courseTemp.setPrice(Double.valueOf(data1.get(i)));
-            courseTemp.setQuantity(Double.valueOf(data2.get(i)));
+            courseTemp.setId((i + 1) + "");
+            courseTemp.setName(tableRowName.getText().toString());
+            courseTemp.setQuantity(Double.valueOf(tableRowQuantity.getText().toString()));
+            courseTemp.setPrice(Double.valueOf(tableRowPrice.getText().toString()));
 
-            courseHashMap.put((i+1)+"", courseTemp);
-            currentSemesterCoursesRef.setValue(courseHashMap);
+            listOfHashMaps.add(courseTemp);
         }
         editCourse.setText("");
         editQty.setText("");
         editPrice.setText("");
         editSubTotal.setText("");
+
+        for (int j = 0; j < listOfHashMaps.size(); j++) {
+            currentSemesterCoursesRef.child(j + 1 + "").setValue(listOfHashMaps.get(j));
+        }
 
         closeKeyboard();
 

@@ -43,7 +43,7 @@ public class Course {
         this.quantity = quantity;
     }
 
-    private double getTotal(){
+    public double getTotal(){
         return this.price * this.quantity;
     }
 }
